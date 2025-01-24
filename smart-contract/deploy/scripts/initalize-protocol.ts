@@ -1,18 +1,18 @@
 import { sleep, getDeploymentSigner } from "../defender-utils";
 import hre , { ethers, upgrades } from "hardhat";
 import { Signer } from '@ethersproject/abstract-signer/src.ts'
-import { COMPLERE_TESTNET_CONTRACT_ADDRESSES } from "../utils";
+import { BNB_MAINNET_CONTRACT_ADDRESSES } from "../utils";
 import { ChargeHandler, Gatekeeper, GatewayNetwork, GatewayToken } from "../../typechain-types";
 
 async function main() {    
     let signer: Signer;
     signer = await getDeploymentSigner();
 
-    const gatewayNetworkContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.gatewayNetwork;
-    const gatekeeperContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.gatekeeper;
-    const chargeHandlerContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.chargeHandler;
-    const gatewayTokenContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.gatewayToken;
-    const trustedForwarderContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.trustedForwarder;
+    const gatewayNetworkContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatewayNetwork;
+    const gatekeeperContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatekeeper;
+    const chargeHandlerContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.chargeHandler;
+    const gatewayTokenContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatewayToken;
+    const trustedForwarderContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.trustedForwarder;
 
     /**
      * Charge Handler

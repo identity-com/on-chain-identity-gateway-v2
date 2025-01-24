@@ -1,7 +1,7 @@
 import { sleep, getDeploymentSigner } from "../defender-utils";
 import hre , { ethers, upgrades } from "hardhat";
 import { Signer } from '@ethersproject/abstract-signer/src.ts'
-import { BNB_TESTNET_CONTRACT_ADDRESSES, COMPLERE_TESTNET_CONTRACT_ADDRESSES, ZERO_ADDRESS, gatekeeperOneTestnetWallet, gatekeeperTwoTestnetWallet, testNetworkName, testNetworkNameWithErc20Fees, testNetworkNameWithNativeFees } from "../utils";
+import { BNB_MAINNET_CONTRACT_ADDRESSES , ZERO_ADDRESS, gatekeeperOneTestnetWallet, gatekeeperTwoTestnetWallet, testNetworkName, testNetworkNameWithErc20Fees, testNetworkNameWithNativeFees } from "../utils";
 import { GatewayNetwork, IGatewayNetwork } from "../../typechain-types";
 import { utils } from "ethers";
 
@@ -9,8 +9,8 @@ async function main() {
     let signer: Signer;
     signer = await getDeploymentSigner();
 
-    const gatewayNetworkContractAddress = BNB_TESTNET_CONTRACT_ADDRESSES.gatewayNetwork;
-    const dummyERC20ContractAddress = BNB_TESTNET_CONTRACT_ADDRESSES.erc20;
+    const gatewayNetworkContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatewayNetwork;
+    const dummyERC20ContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.erc20;
 
     const provider = new ethers.providers.JsonRpcProvider(process.env.BNB_TESTNET_RPC_URL!);
 
@@ -27,7 +27,7 @@ async function main() {
     const testNetworkOne: IGatewayNetwork.GatekeeperNetworkDataStruct = {
         primaryAuthority: await signer.getAddress(),
         name: testNetworkName,
-        passExpireDurationInSeconds: 2628000,
+        passExpireDurationInSeconds: 31536000, // 1 year
         networkFeatureMask: 0,
         networkFee: {
             issueFee: 0,
@@ -38,7 +38,7 @@ async function main() {
         supportedToken: dummyERC20ContractAddress,
         gatekeepers: [],
         lastFeeUpdateTimestamp: 0,
-        description: utils.formatBytes32String("Identity KYC Network")
+        description: utils.formatBytes32String("Identity-KYC-Verification")
     }
 
     console.log(`Creating testNetworkOne`);
