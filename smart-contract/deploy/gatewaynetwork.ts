@@ -1,12 +1,12 @@
 import { addContractToAdmin, sleep, verify, getDeploymentSigner } from "./defender-utils";
 import { Signer } from '@ethersproject/abstract-signer/src.ts'
 import { ethers, upgrades } from 'hardhat';
-import { BNB_TESTNET_CONTRACT_ADDRESSES, COMPLERE_TESTNET_CONTRACT_ADDRESSES } from "./utils";
+import { BNB_MAINNET_CONTRACT_ADDRESSES } from "./utils";
 
 
 async function main() {
-    const testnetGatekeeperContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.gatekeeper;
-    const testnetStakingContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.gatewayStaking;
+    const testnetGatekeeperContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatekeeper;
+    const testnetStakingContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.gatewayStaking;
 
     const signer: Signer = await getDeploymentSigner();
     const signerAddress = await signer.getAddress();
@@ -26,9 +26,6 @@ async function main() {
 
     await verify(deployedAddress,[]);
 
-    // Need to wait to avoid rate limit
-    await sleep(2000);
-    await addContractToAdmin(deployedAddress, "GatewayNetwork");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

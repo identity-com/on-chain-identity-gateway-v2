@@ -13,6 +13,18 @@ interface GatewayProtocolContractAddresses {
     trustedForwarder: string
 }
 
+export const BNB_MAINNET_CONTRACT_ADDRESSES: GatewayProtocolContractAddresses = {
+    flagsStorage: "0xa42353DeEda212dD62Fd76357AaBBD377867E3de",
+    gatekeeper: "0x3B17Cc23547fa956678792d4Db7d1a460ED1BE6C",
+    gatewayNetwork: "0x9A76a53CF4B75174D89a4b88797164677d363e0e",
+    chargeHandler: "0x1B40fC7f6731860e48dEd4781E765998fA58e507",
+    gatewayStaking: "0x2Ee110078Be3848fC3Da52c373c1B0c7C6486ea8",
+    erc20: "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d", // USDC on BNB (https://bscscan.com/address/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d)
+    gatewayToken: "0x62160b81c9872283d63de561d7469D440560a7cb",
+    forwarder: "0xD3d93548af709b3d717C160B82816f4351290878",
+    trustedForwarder: "0xD3d93548af709b3d717C160B82816f4351290878"
+}
+
 export const BNB_TESTNET_CONTRACT_ADDRESSES: GatewayProtocolContractAddresses = {
     flagsStorage: "0x06c9d91b3Acc1D2434342242C987064E555FFe8a",
     gatekeeper: "0x47340b5b62a1c9038aa70dc1e7344be5a59da8af",

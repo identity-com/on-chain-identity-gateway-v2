@@ -19,10 +19,6 @@ async function main() {
     await sleep(6000);
 
     await verify(deployedAddress,[forwardedSignatureExpirationInBlocks]);
-
-    // Need to wait to avoid rate limit
-    await sleep(2000);
-    await addContractToAdmin(deployedAddress, "FlexibleNonceForwarder");
 }
 
 

@@ -1,10 +1,10 @@
 import { addContractToAdmin, getDeploymentSigner, sleep, verify } from "./defender-utils";
 import { ethers , upgrades } from 'hardhat';
 import { Signer } from '@ethersproject/abstract-signer/src.ts'
-import { BNB_TESTNET_CONTRACT_ADDRESSES, COMPLERE_TESTNET_CONTRACT_ADDRESSES } from "./utils";
+import { BNB_MAINNET_CONTRACT_ADDRESSES } from "./utils";
 
 async function main() {
-    const testnetTokenContractAddress = COMPLERE_TESTNET_CONTRACT_ADDRESSES.erc20;
+    const testnetTokenContractAddress = BNB_MAINNET_CONTRACT_ADDRESSES.erc20;
 
     const args = [testnetTokenContractAddress , 'Identity Test Staking Vault', "ID_TEST_STAKE"];
     
@@ -29,9 +29,6 @@ async function main() {
 
     await verify(deployedAddress,args);
 
-    // Need to wait to avoid rate limit
-    await sleep(2000);
-    await addContractToAdmin(deployedAddress, "GatewayStaking");
 }
 
 

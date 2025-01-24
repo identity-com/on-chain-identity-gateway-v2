@@ -22,10 +22,6 @@ async function main() {
     await hre.run("verify:verify", {
         address: deployedAddress,
     });
-
-    // Need to wait to avoid rate limit
-    await sleep(2000);
-    await addContractToAdmin(deployedAddress, "Charge Handler");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

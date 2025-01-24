@@ -19,8 +19,6 @@ async function main() {
     await verify(deployedAddress,[]);
 
     // Need to wait to avoid rate limit
-    await sleep(2000);
-    await addContractToAdmin(deployedAddress, "Gatekeeper");
 }
 
 

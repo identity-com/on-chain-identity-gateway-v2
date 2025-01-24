@@ -81,7 +81,12 @@ module.exports = {
       url: `${process.env.BNB_TESTNET_RPC_URL}`,
       accounts: liveAccounts,
       chainId: 5918836757,
-    }
+    },
+    bnbMainnet: {
+      url: `${process.env.BNB_TESTNET_RPC_URL}`,
+      accounts: liveAccounts,
+      chainId: 56,
+    },
   },
   solidity: {
     version: '0.8.19',
@@ -127,7 +132,8 @@ module.exports = {
       polygonZkEVMTestnet: process.env.POLYGONSCAN_API_KEY,
       arbitrumOne: process.env.ARBISCAN_API_KEY,
       arbitrumGoerli: process.env.ARBISCAN_API_KEY,
-      bscTestnet: process.env.BSC_SCAN_API_KEY
+      bscTestnet: process.env.BSC_SCAN_API_KEY,
+      bsc: process.env.BSC_SCAN_API_KEY
     },
     customChains: [
       {
